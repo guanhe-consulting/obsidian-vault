@@ -1,0 +1,246 @@
+{
+  "settings": {
+    "language": "auto",
+    "autoOpenOnStartup": true,
+    "recordingFullscreenOverlay": true,
+    "workbenchCompactMode": false,
+    "longRecordingAutoSegment": false,
+    "longRecordingSegmentMinutes": 30,
+    "audioFolder": "附件/录音",
+    "mdFolder": "碎片/录音",
+    "audioLinkMode": "embed",
+    "templatePath": "",
+    "noteFileNameFormatNew": "YYYY-MM-DD HHmm",
+    "noteFileNameFormatDaily": "YYYY-MM-DD",
+    "recordMode": "daily",
+    "recordAppendNewestFirst": false,
+    "recentListMode": "clips",
+    "recentLimit": 8,
+    "transcribeProviderId": "siliconFlow",
+    "polishEnabled": false,
+    "polishDeleteSourceTranscript": false,
+    "polishProviderPreset": "siliconflow",
+    "polishProviders": {
+      "siliconflow": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://api.siliconflow.cn/v1",
+        "model": "Pro/deepseek-ai/DeepSeek-V3.2"
+      },
+      "doubao": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "model": "doubao-seed-2-0-lite-260215"
+      },
+      "openai": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://api.openai.com/v1",
+        "model": "gpt-4.1-mini"
+      },
+      "chatgpt": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://api.openai.com/v1",
+        "model": "gpt-4.1-mini"
+      },
+      "gemini": {
+        "apiType": "gemini",
+        "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+        "model": "gemini-2.0-flash"
+      },
+      "qwen": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "qwen-plus"
+      },
+      "anthropic": {
+        "apiType": "anthropic",
+        "baseUrl": "https://api.anthropic.com/v1",
+        "model": "claude-3-5-haiku-latest"
+      },
+      "ollama": {
+        "apiType": "openai-compatible",
+        "baseUrl": "http://127.0.0.1:11434/v1",
+        "model": "llama3.1:8b"
+      },
+      "deepseek": {
+        "apiType": "openai-compatible",
+        "baseUrl": "https://api.deepseek.com/v1",
+        "model": "deepseek-chat"
+      },
+      "custom": {
+        "apiType": "openai-compatible",
+        "baseUrl": "",
+        "model": ""
+      }
+    },
+    "polishApiType": "openai-compatible",
+    "polishBaseUrl": "https://api.siliconflow.cn/v1",
+    "polishModel": "Pro/deepseek-ai/DeepSeek-V3.2",
+    "polishPromptProfileId": "voice-notes",
+    "polishPromptProfiles": [
+      {
+        "id": "voice-notes",
+        "name": "口述笔记",
+        "prompt": "你是一名口述笔记整理助手。\n\n任务：\n请把下面的口述转写整理成便于回看的笔记正文。\n\n规则：\n1. 保留原来的思路推进，不改写成摘要或提纲。\n2. 可以适度分段，让阅读更轻松。\n3. 删除明显口头禅、重复表达和无意义停顿。\n4. 修正明显病句和断句问题，让表达更顺。\n5. 不新增事实，不补充原文没有明确说出的信息。\n6. 无法确认的词语不要硬改。\n7. 只输出最终文本。\n\n待处理文本："
+      },
+      {
+        "id": "meeting-notes",
+        "name": "会议记录",
+        "prompt": "你是一名会议记录整理助手。\n\n任务：\n请把下面的会议转写整理成清晰、克制、可回看的会议记录。\n\n规则：\n1. 只使用原文中明确出现的信息，不要推断。\n2. 删除明显口头禅、重复句和无意义停顿。\n3. 不把讨论倾向、猜测或设想写成结论。\n4. 不新增事实，不补充原文没有明确说出的信息。\n5. 只输出最终内容。\n\n输出格式：\n会议内容\n用 1 到 2 段自然语言整理主要讨论内容。\n\n已明确结论\n只写原文中已经明确拍板或达成一致的内容；如果没有，就省略本部分。\n\n已明确待办\n只写原文中明确提到的后续动作、分工或跟进事项；如果没有，就省略本部分。\n\n待处理文本："
+      },
+      {
+        "id": "todo-organizer",
+        "name": "待办提取",
+        "prompt": "你是一名待办提取助手。\n\n任务：\n请先从下面的转写文本中提取明确待办，再把剩余事实整理成可回看的正文。\n\n规则：\n1. 待办事项必须集中放在最前面，每条都用 Markdown 勾选框格式：- [ ] 事项。\n2. 每条待办尽量写成具体动作，不要只写主题词。\n3. 只保留原文中明确提出、明确安排或明确跟进的待办。\n4. 不要把背景、观点、感受或讨论过程直接写成待办。\n5. 待办后面保留一段“原文事实”，把原文中的明确事实、背景、限制和上下文整理成自然正文。\n6. 原文事实只做润色和顺句，不做总结提炼，不新增事实，不补充原文没有明确说出的信息。\n7. 无法确认的词语不要硬改，尽量保留原意。\n8. 如果没有明确待办，在“待办事项”下只写“未识别到明确待办事项。”，仍然保留“原文事实”部分。\n9. 不要解释，不要额外说明，只输出最终内容。\n\n输出格式：\n待办事项\n- [ ] 待办 1\n- [ ] 待办 2\n如果没有明确待办，则写：未识别到明确待办事项。\n\n原文事实\n用自然正文整理原文中的明确事实，可分成少量短段。\n\n待处理文本："
+      },
+      {
+        "id": "translation-notes",
+        "name": "翻译整理",
+        "prompt": "你是一名口述内容翻译整理助手。\n\n目标语言：英文。\n如果需要改成其他目标语言，用户可以直接修改这一行。\n\n任务：\n请先理解下面的口述转写内容，再在不新增事实的前提下，将其整理并翻译为目标语言。\n\n规则：\n1. 默认输出英文；如果上方目标语言被用户改成其他语言，则输出对应目标语言。\n2. 只做翻译整理，不做总结、提纲、摘要、扩写或评论。\n3. 不新增事实，不补充原文没有明确说出的信息，不根据常识补全语义。\n4. 保留原文的信息量、语气强弱、表达顺序和必要细节，不要明显缩短。\n5. 删除明显口头禅、重复表达、卡顿和无意义停顿。\n6. 修正明显病句和断句问题，让目标语言表达自然顺畅。\n7. 对于疑似识别错误但无法确认的词语，不要擅自替换成新事实，尽量按原文含义保守处理。\n8. 不要添加标题、序号、分点或解释。\n9. 只输出最终译文。\n\n待处理文本："
+      }
+    ],
+    "transcribeProviders": {
+      "openaiOfficial": {
+        "apiKey": "",
+        "model": "gpt-4o-transcribe",
+        "language": "",
+        "prompt": ""
+      },
+      "siliconFlow": {
+        "baseUrl": "https://api.siliconflow.cn/v1",
+        "apiKey": "",
+        "model": "FunAudioLLM/SenseVoiceSmall",
+        "language": "",
+        "prompt": ""
+      },
+      "manual": {
+        "baseUrl": "",
+        "apiKey": "",
+        "model": "FunAudioLLM/SenseVoiceSmall",
+        "language": "",
+        "prompt": ""
+      },
+      "localOpenAiCompatible": {
+        "endpoint": "",
+        "apiKey": "",
+        "model": "FunAudioLLM/SenseVoiceSmall",
+        "language": "",
+        "prompt": ""
+      },
+      "tencentAsr": {
+        "secretId": "",
+        "secretKey": "",
+        "region": "ap-shanghai",
+        "engineModelType": "16k_zh",
+        "channelNum": 1
+      },
+      "aliyunDashScopeAsr": {
+        "apiKey": "",
+        "model": "paraformer-v2",
+        "languageHints": "",
+        "vocabularyId": ""
+      },
+      "azureSpeech": {
+        "endpoint": "",
+        "subscriptionKey": "",
+        "locales": ""
+      },
+      "googleSpeechV1": {
+        "accessToken": "",
+        "serviceAccountJson": "",
+        "quotaProjectId": "",
+        "languageCode": "",
+        "model": "latest_short",
+        "enableAutomaticPunctuation": true,
+        "audioChannelCount": 1
+      },
+      "doubaoAsr": {
+        "apiKey": "",
+        "modelName": "bigmodel",
+        "resourceId": "volc.bigasr.auc_turbo"
+      }
+    },
+    "security": {
+      "license": {
+        "key": "",
+        "state": {
+          "status": "inactive",
+          "reason": "none",
+          "payload": null,
+          "activatedAt": "",
+          "lastVerifiedAt": "",
+          "lastVerifiedPluginVersion": "",
+          "lastError": ""
+        }
+      },
+      "providerSecrets": {
+        "openaiOfficial": {
+          "apiKey": ""
+        },
+        "siliconFlow": {
+          "apiKey": ""
+        },
+        "manual": {
+          "apiKey": ""
+        },
+        "localOpenAiCompatible": {
+          "apiKey": ""
+        },
+        "tencentAsr": {
+          "secretId": "",
+          "secretKey": ""
+        },
+        "aliyunDashScopeAsr": {
+          "apiKey": ""
+        },
+        "azureSpeech": {
+          "subscriptionKey": ""
+        },
+        "googleSpeechV1": {
+          "accessToken": "",
+          "serviceAccountJson": ""
+        },
+        "doubaoAsr": {
+          "apiKey": ""
+        }
+      },
+      "polishProviderSecrets": {
+        "siliconflow": {
+          "apiKey": ""
+        },
+        "doubao": {
+          "apiKey": ""
+        },
+        "openai": {
+          "apiKey": ""
+        },
+        "chatgpt": {
+          "apiKey": ""
+        },
+        "gemini": {
+          "apiKey": ""
+        },
+        "qwen": {
+          "apiKey": ""
+        },
+        "anthropic": {
+          "apiKey": ""
+        },
+        "ollama": {
+          "apiKey": ""
+        },
+        "deepseek": {
+          "apiKey": ""
+        },
+        "custom": {
+          "apiKey": ""
+        }
+      },
+      "polishApiKey": ""
+    }
+  },
+  "runtime": {
+    "wasViewOpen": false
+  },
+  "transcribeQueue": [],
+  "polishQueue": []
+}

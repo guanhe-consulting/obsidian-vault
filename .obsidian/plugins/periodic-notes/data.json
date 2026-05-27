@@ -1,0 +1,36 @@
+{
+  "installedVersion": "1.0.0-beta1",
+  "activeCalendarSet": "Default",
+  "showGettingStartedBanner": true,
+  "hasMigratedDailyNoteSettings": false,
+  "hasMigratedWeeklyNoteSettings": false,
+  "calendarSets": [
+    {
+      "day": {
+        "enabled": true,
+        "openAtStartup": false,
+        "format": "YYYY年M月D日，dddd，晴",
+        "templatePath": "模板/每日日志.md",
+        "folder": "每日日志"
+      },
+      "week": {
+        "enabled": true,
+        "format": "第ww周工作回顾（YYYY-MM-DD)",
+        "templatePath": "模板/周回顾.md",
+        "folder": "周回顾",
+        "openAtStartup": false
+      },
+      "month": {
+        "enabled": true,
+        "format": "YYYY年MM月　月复盘",
+        "templatePath": "模板/月复盘.md",
+        "folder": "月复盘"
+      },
+      "quarter": {},
+      "year": {},
+      "id": "Default",
+      "ctime": "2026-04-12T11:03:12+08:00"
+    }
+  ],
+  "enableTimelineComplication": true
+}

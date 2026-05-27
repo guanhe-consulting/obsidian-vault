@@ -1,0 +1,14 @@
+{
+  "token": "",
+  "refreshToken": "",
+  "auth": {
+    "tokenExpiresAt": 1794732651000,
+    "userInfo": {
+      "sub": "ee750922-21e8-476b-8794-d91dd6741964",
+      "name": "18996132360",
+      "email": null,
+      "avatar": null
+    },
+    "pendingOAuthSession": null
+  }
+}
