@@ -239,7 +239,7 @@
     }
   },
   "runtime": {
-    "wasViewOpen": false
+    "wasViewOpen": true
   },
   "transcribeQueue": [],
   "polishQueue": []
